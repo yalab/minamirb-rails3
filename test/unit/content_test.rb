@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 require 'test_helper'
 
 class ContentTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "the should validate" do
+    content = Content.new
+    assert !content.valid?
+    assert content.errors[:title].include?("を入力してください。")
   end
 end
