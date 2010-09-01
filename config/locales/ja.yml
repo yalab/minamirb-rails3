@@ -3,6 +3,10 @@
 # AR error messages are basically taken from Ruby-GetText-Package. Thanks to Masao Mutoh.
 
 ja:
+  create: &create
+          新規作成
+  title: &title
+         タイトル
   date:
     formats:
       default: "%Y/%m/%d"
@@ -146,3 +150,9 @@ ja:
 
       full_messages:
         format: "%{attribute}%{message}"
+    attributes:
+      content:
+        title: *title
+  helpers:
+    submit:
+      create: *create
