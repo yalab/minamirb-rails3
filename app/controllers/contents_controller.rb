@@ -2,8 +2,12 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.xml
   def index
-    @contents = Content.all
-
+    if title = params[:content] && params[:content][:title]
+      @contents = Content.where("title like ?", "%#{title}%").all
+    else
+      @contents = Content.all
+    end
+    @content = Content.new(params[:content])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contents }

@@ -1,5 +1,8 @@
 <h1>Listing contents</h1>
-
+<%= form_for(@content, :url => contents_path, :html => {:method => :get}) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit 'Search' %>
+<% end %>
 <table>
   <tr>
     <th>Title</th>

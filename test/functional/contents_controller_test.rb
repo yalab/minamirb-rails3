@@ -46,4 +46,10 @@ class ContentsControllerTest < ActionController::TestCase
 
     assert_redirected_to contents_path
   end
+
+  test "should get index with search query" do
+    count = Content.count
+    get :index, :content => {:title => 'Sinatra'}
+    assert count > assigns(:contents).length
+  end
 end
