@@ -2,11 +2,7 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.xml
   def index
-    if title = params[:content] && params[:content][:title]
-      @contents = Content.where("title like ?", "%#{title}%").all
-    else
-      @contents = Content.all
-    end
+    @contents = Content.title_like(params[:content]).all
     @content = Content.new(params[:content])
     respond_to do |format|
       format.html # index.html.erb
